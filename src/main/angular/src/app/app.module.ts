@@ -13,6 +13,7 @@ import {environment} from '../environments/environment';
 import {AuthModule} from './auth/auth.module';
 import {HttpClientModule} from '@angular/common/http';
 import * as fromApp from './reducers';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import * as fromApp from './reducers';
     StoreRouterConnectingModule.forRoot({
       stateKey: 'router',
       routerState: RouterState.Minimal
-    })
+    }),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
