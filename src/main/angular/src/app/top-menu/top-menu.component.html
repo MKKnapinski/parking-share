@@ -1,0 +1,18 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #menu>
+    <mat-nav-list (click)="menu.close()">
+      <a mat-list-item>
+        <mat-icon>library_books</mat-icon>
+        <span>Login</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-toolbar color="primary">
+    <button class="menu-button" mat-icon-button (click)="menu.open('mouse')">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <ng-content></ng-content>
+</mat-sidenav-container>
