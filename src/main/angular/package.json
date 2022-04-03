@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --live-reload",
+    "start-in-container": "ng serve --live-reload --host 0.0.0.0 --port 4200",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -26,6 +27,8 @@
     "@ngrx/router-store": "13.1.0",
     "@ngrx/store": "13.1.0",
     "@ngrx/store-devtools": "13.1.0",
+    "keycloak-angular": "^9.1.0",
+    "keycloak-js": "^16.1.1",
     "rxjs": "7.5.0",
     "tslib": "2.3.0",
     "zone.js": "0.11.4"
