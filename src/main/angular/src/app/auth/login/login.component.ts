@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../auth.service';
 
 export const LOGIN_PAGE = '[Login Page]'
 
@@ -11,7 +12,7 @@ export const LOGIN_PAGE = '[Login Page]'
 export class LoginComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
 
     this.form = formBuilder.group({
       email: [undefined, [Validators.required]],
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.authService.getLoggedUser())
   }
 
   login(): void {

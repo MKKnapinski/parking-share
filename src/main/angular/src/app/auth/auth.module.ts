@@ -10,6 +10,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {AuthGuard} from './auth.guard';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import {MatButtonModule} from '@angular/material/button';
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild([{path: '', component: LoginComponent}]),
+    RouterModule.forChild([{path: '', component: LoginComponent, canActivate: [AuthGuard]}]),
     StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducers, { metaReducers: fromAuth.metaReducers }),
     MatCardModule,
     MatFormFieldModule,
