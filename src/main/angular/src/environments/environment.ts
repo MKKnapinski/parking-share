@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  keycloakUrl: 'https://localhost:8443',
-  keycloakRealm: 'parking-share-realm',
-  keycloakClientId: 'angular'
+  keycloakUrl: 'http://localhost:8080',
+  keycloakRealm: 'parking-share',
+  keycloakClientId: 'frontend'
 };
 
 /*

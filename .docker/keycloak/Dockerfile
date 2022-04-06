@@ -17,4 +17,6 @@ ENV KC_DB_URL=jdbc:postgresql://parking-keycloak-postgres:5432/keycloak
 ENV KC_DB_USERNAME=keycloak
 ENV KC_DB_PASSWORD=keycloak
 ENV KC_HOSTNAME=localhost
+ENV KC_HOSTNAME_STRICT_HTTPS='false'
+ENV KC_HTTP_ENABLED='true'
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start"]

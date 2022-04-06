@@ -14,12 +14,6 @@ import {AuthModule} from './auth/auth.module';
 import {HttpClientModule} from '@angular/common/http';
 import * as fromApp from './reducers';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatListModule} from '@angular/material/list';
-import {TopMenuComponent} from './top-menu/top-menu.component';
 import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
 import {initializer} from './auth/keycloak/keycloak.initializer';
 import {AuthService} from './auth/auth.service';
@@ -27,8 +21,7 @@ import {AuthGuard} from './auth/auth.guard';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TopMenuComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -52,11 +45,6 @@ import {AuthGuard} from './auth/auth.guard';
       routerState: RouterState.Minimal
     }),
     BrowserAnimationsModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatListModule,
     KeycloakAngularModule
   ],
   providers: [
