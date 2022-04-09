@@ -1,21 +1,27 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {AuthService} from './auth.service';
-import {RouterModule} from '@angular/router';
+import {ReactiveFormsModule} from '@angular/forms';
+import {LoginComponent} from './login/login.component';
 import {StoreModule} from '@ngrx/store';
 import * as fromAuth from './reducers';
-import {ReactiveFormsModule} from '@angular/forms';
+import {authReducer} from './reducers';
+import {EffectsModule} from '@ngrx/effects';
 
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forChild([]),
-    StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducers, {metaReducers: fromAuth.metaReducers}),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forFeature(fromAuth.authFeatureKey, authReducer),
+    EffectsModule.forFeature([])
   ],
-  exports: []
+  declarations: [
+    LoginComponent
+  ],
+  exports: [
+    LoginComponent
+  ]
 })
 export class AuthModule {
   static forRoot(): ModuleWithProviders<AuthModule> {

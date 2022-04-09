@@ -22,8 +22,8 @@ export class AuthService {
     return this.keycloakService.isLoggedIn();
   }
 
-  public login(): void {
-    this.keycloakService.login();
+  public login(): Promise<void> {
+    return this.keycloakService.login();
   }
 
   public logout(): void {
