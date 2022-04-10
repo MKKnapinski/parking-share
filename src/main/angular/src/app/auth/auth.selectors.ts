@@ -8,3 +8,8 @@ export const isLoggedIn = createSelector(
   selectAuthState,
   auth => !!auth.user
 );
+
+export const user = createSelector(
+  selectAuthState,
+  auth => auth.user
+)

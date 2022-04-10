@@ -1,7 +1,15 @@
 import {createAction, props} from '@ngrx/store';
-import {User} from '../model/user.model';
+import {KeycloakTokenParsed} from 'keycloak-js';
 
 export const login = createAction(
-  '[Login Page] User Login',
-  props<{ user: User }>()
+  '[Navbar] User Login'
+)
+
+export const logout = createAction(
+  '[Navbar] Logout'
+)
+
+export const checkUserStatus = createAction(
+  '[App Component] Check user status',
+  props<{user: KeycloakTokenParsed|undefined}>()
 )
