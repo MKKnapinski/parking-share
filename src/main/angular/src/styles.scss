@@ -7,3 +7,11 @@
 @import "assets/sass/layout/_variables";
 @import "assets/sass/layout/_layout";
 @import "assets/sass/overrides/_overrides";
+
+.logo-text {
+  font-weight: 800;
+  background: -webkit-linear-gradient(45deg, #09009f, var(--green-500) 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}

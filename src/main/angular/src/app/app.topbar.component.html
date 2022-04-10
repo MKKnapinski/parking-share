@@ -1,7 +1,7 @@
 <div class="layout-topbar">
   <a class="layout-topbar-logo" routerLink="">
-    <img src="assets/layout/images/{{appMain.config.dark ? 'logo-white' : 'logo-dark'}}.svg" alt="logo">
-    <span>SAKAI</span>
+    <span class="logo-text">Parking Share&nbsp;</span>
+    <i class="pi pi-share-alt" style="font-size: 100%; color: var(--green-500);"></i>
   </a>
 
   <a class="p-link layout-menu-button layout-topbar-button" href="#" (click)="appMain.toggleMenu($event)">
@@ -13,6 +13,18 @@
   </a>
 
   <div class="layout-topbar-menu" [ngClass]="{'layout-topbar-menu-mobile-active':appMain.topMenuActive}">
+    <a *ngIf="isLoggedIn$ | async" (click)="profileButtonClickHandler()" class="p-link layout-topbar-button">
+      <p-avatar image="assets/demo/images/avatar/amyelsner.png" size="large" shape="circle"></p-avatar>
+      <span style="padding-left: 1em" *ngIf="user$ | async as user">{{user.name ? user.name : user.preferred_username}}</span>
+    </a>
+    <div *ngIf="!appMain.topMenuActive && user$ | async as user"
+         style="padding-left: 1em; display: flex; align-items: center">
+      {{user.name ? user.name : user.preferred_username}}
+    </div>
+    <a *ngIf="!(isLoggedIn$ | async)" (click)="loginButtonClickHandler()" class="p-link layout-topbar-button">
+      <i class="pi pi-user"></i>
+      <span>Log in</span>
+    </a>
     <a href="#" class="p-link layout-topbar-button">
       <i class="pi pi-calendar"></i>
       <span>Calendar</span>
@@ -21,9 +33,9 @@
       <i class="pi pi-cog"></i>
       <span>Settings</span>
     </a>
-    <a href="#" class="p-link layout-topbar-button">
-      <i class="pi pi-user"></i>
-      <span>Profile</span>
+    <a *ngIf="isLoggedIn$ | async" (click)="logoutButtonClickHandler()" class="p-link layout-topbar-button">
+      <i class="pi pi-power-off"></i>
+      <span>Logout</span>
     </a>
   </div>
 </div>
