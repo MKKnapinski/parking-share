@@ -1,0 +1,8 @@
+//@ts-nocheck
+
+export interface Image {
+  previewImageSrc?;
+  thumbnailImageSrc?;
+  alt?;
+  title?;
+}

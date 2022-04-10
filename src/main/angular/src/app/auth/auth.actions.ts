@@ -11,5 +11,5 @@ export const logout = createAction(
 
 export const checkUserStatus = createAction(
   '[App Component] Check user status',
-  props<{user: KeycloakTokenParsed|undefined}>()
+  props<{ user: KeycloakTokenParsed | undefined }>()
 )

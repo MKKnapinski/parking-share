@@ -12,8 +12,7 @@ export const initialAuthState: AuthState = {
   user: undefined
 }
 
-export const reducers: ActionReducerMap<AuthState> = {
-};
+export const reducers: ActionReducerMap<AuthState> = {};
 
 export const authReducer = createReducer(
   initialAuthState,

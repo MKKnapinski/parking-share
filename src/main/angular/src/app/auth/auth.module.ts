@@ -16,10 +16,8 @@ import {AuthEffects} from './auth.effects';
     StoreModule.forFeature(fromAuth.authFeatureKey, authReducer),
     EffectsModule.forFeature([AuthEffects])
   ],
-  declarations: [
-  ],
-  exports: [
-  ]
+  declarations: [],
+  exports: []
 })
 export class AuthModule {
   static forRoot(): ModuleWithProviders<AuthModule> {

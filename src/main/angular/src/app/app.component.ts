@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
+import {PrimeNGConfig} from 'primeng/api';
 import {AuthService} from './auth/auth.service';
 import {AppState} from './reducers';
 import {Store} from '@ngrx/store';
@@ -6,15 +7,21 @@ import {AuthActions} from './auth/auth-action-types';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit {
-  constructor(private authService: AuthService, private store: Store<AppState>) {
+export class AppComponent {
+
+  menuMode = 'static';
+
+  constructor(private primengConfig: PrimeNGConfig,
+              private authService: AuthService,
+              private store: Store<AppState>) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.primengConfig.ripple = true;
+    document.documentElement.style.fontSize = '14px';
     this.store.dispatch(AuthActions.checkUserStatus({user: this.authService.getLoggedUser()}))
-  }
 
+  }
 }
