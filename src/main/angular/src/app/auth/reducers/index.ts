@@ -1,11 +1,11 @@
 import {ActionReducerMap, createReducer, on} from '@ngrx/store';
 import {AuthActions} from '../auth-action-types';
-import {KeycloakTokenParsed} from 'keycloak-js';
+import {User} from '../../model/user.model';
 
 export const authFeatureKey = 'auth';
 
 export interface AuthState {
-  user?: KeycloakTokenParsed
+  user?: User
 }
 
 export const initialAuthState: AuthState = {

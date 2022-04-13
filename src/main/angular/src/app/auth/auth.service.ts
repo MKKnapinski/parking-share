@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {KeycloakService} from 'keycloak-angular';
 import {KeycloakProfile, KeycloakTokenParsed} from 'keycloak-js';
 import {from, Observable} from 'rxjs';
+import {User} from '../model/user.model';
 
 @Injectable()
 export class AuthService {
@@ -9,14 +10,22 @@ export class AuthService {
   constructor(private keycloakService: KeycloakService) {
   }
 
-  public getLoggedUser(): KeycloakTokenParsed | undefined {
-    try {
-      return this.keycloakService.getKeycloakInstance()
+  public getLoggedUser(): User | undefined {
+      let user: User | undefined = undefined;
+
+      const tokenParsed: KeycloakTokenParsed | undefined = this.keycloakService
+        .getKeycloakInstance()
         .idTokenParsed;
-    } catch (e) {
-      console.error("exception", e);
-      return undefined;
-    }
+
+      if (tokenParsed) {
+        user = new User();
+        user.name = tokenParsed['name'];
+        user.preferredUsername = tokenParsed['preferred_username'];
+        user.email = tokenParsed['email'];
+        user.roles = this.getUserRoles();
+      }
+
+      return user;
   }
 
   public isLoggedIn(): Observable<boolean> {

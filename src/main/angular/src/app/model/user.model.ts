@@ -1,4 +1,6 @@
 export class User {
-  id?: number;
+  name?: string;
+  preferredUsername?: string;
   email?: string;
+  roles?: string[];
 }

@@ -22,6 +22,5 @@ export class AppComponent {
     this.primengConfig.ripple = true;
     document.documentElement.style.fontSize = '14px';
     this.store.dispatch(AuthActions.checkUserStatus({user: this.authService.getLoggedUser()}))
-
   }
 }

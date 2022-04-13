@@ -1,13 +1,13 @@
 import {Component} from '@angular/core';
-import {AppMainComponent} from './app.main.component';
+import {AppMainComponent} from '../main/app.main.component';
 import {MenuItem} from 'primeng/api';
-import {AppState} from './reducers';
+import {AppState} from '../../reducers';
 import {select, Store} from '@ngrx/store';
-import {AuthActions} from './auth/auth-action-types';
+import {AuthActions} from '../../auth/auth-action-types';
 import {Observable} from 'rxjs';
-import {isLoggedIn, user} from './auth/auth.selectors';
-import {KeycloakTokenParsed} from 'keycloak-js';
+import {isLoggedIn, user} from '../../auth/auth.selectors';
 import {KeycloakService} from 'keycloak-angular';
+import {User} from '../../model/user.model';
 
 @Component({
   selector: 'app-topbar',
@@ -17,7 +17,7 @@ export class AppTopBarComponent {
 
   items: MenuItem[] = [];
   isLoggedIn$: Observable<boolean>;
-  user$: Observable<KeycloakTokenParsed | undefined>;
+  user$: Observable<User | undefined>;
 
   constructor(public appMain: AppMainComponent, private store: Store<AppState>, private keycloakService: KeycloakService) {
     this.isLoggedIn$ = this.store

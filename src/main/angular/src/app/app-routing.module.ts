@@ -1,33 +1,33 @@
 import {RouterModule} from '@angular/router';
 import {NgModule} from '@angular/core';
-import {DashboardComponent} from './components/dashboard/dashboard.component';
-import {FormLayoutComponent} from './components/formlayout/formlayout.component';
-import {PanelsComponent} from './components/panels/panels.component';
-import {OverlaysComponent} from './components/overlays/overlays.component';
-import {MediaComponent} from './components/media/media.component';
-import {MessagesComponent} from './components/messages/messages.component';
-import {MiscComponent} from './components/misc/misc.component';
-import {EmptyComponent} from './components/empty/empty.component';
-import {ChartsComponent} from './components/charts/charts.component';
-import {FileComponent} from './components/file/file.component';
-import {DocumentationComponent} from './components/documentation/documentation.component';
-import {AppMainComponent} from './app.main.component';
-import {InputComponent} from './components/input/input.component';
-import {ButtonComponent} from './components/button/button.component';
-import {TableComponent} from './components/table/table.component';
-import {ListComponent} from './components/list/list.component';
-import {TreeComponent} from './components/tree/tree.component';
-import {CrudComponent} from './components/crud/crud.component';
-import {BlocksComponent} from './components/blocks/blocks.component';
-import {FloatLabelComponent} from './components/floatlabel/floatlabel.component';
-import {InvalidStateComponent} from './components/invalidstate/invalidstate.component';
-import {TimelineComponent} from './components/timeline/timeline.component';
-import {IconsComponent} from './components/icons/icons.component';
-import {LandingComponent} from './components/landing/landing.component';
-import {LoginComponent} from './components/login/login.component';
-import {ErrorComponent} from './components/error/error.component';
-import {NotfoundComponent} from './components/notfound/notfound.component';
-import {AccessComponent} from './components/access/access.component';
+import {DashboardComponent} from './componenets/dashboard/dashboard.component';
+import {FormLayoutComponent} from './generic-components/formlayout/formlayout.component';
+import {PanelsComponent} from './generic-components/panels/panels.component';
+import {OverlaysComponent} from './generic-components/overlays/overlays.component';
+import {MediaComponent} from './generic-components/media/media.component';
+import {MessagesComponent} from './generic-components/messages/messages.component';
+import {MiscComponent} from './generic-components/misc/misc.component';
+import {EmptyComponent} from './generic-components/empty/empty.component';
+import {ChartsComponent} from './generic-components/charts/charts.component';
+import {FileComponent} from './generic-components/file/file.component';
+import {DocumentationComponent} from './generic-components/documentation/documentation.component';
+import {AppMainComponent} from './componenets/main/app.main.component';
+import {InputComponent} from './generic-components/input/input.component';
+import {ButtonComponent} from './generic-components/button/button.component';
+import {TableComponent} from './generic-components/table/table.component';
+import {ListComponent} from './generic-components/list/list.component';
+import {TreeComponent} from './generic-components/tree/tree.component';
+import {CrudComponent} from './generic-components/crud/crud.component';
+import {BlocksComponent} from './generic-components/blocks/blocks.component';
+import {FloatLabelComponent} from './generic-components/floatlabel/floatlabel.component';
+import {InvalidStateComponent} from './generic-components/invalidstate/invalidstate.component';
+import {TimelineComponent} from './generic-components/timeline/timeline.component';
+import {IconsComponent} from './generic-components/icons/icons.component';
+import {LandingComponent} from './generic-components/landing/landing.component';
+import {LoginComponent} from './generic-components/login/login.component';
+import {ErrorComponent} from './generic-components/error/error.component';
+import {NotfoundComponent} from './generic-components/notfound/notfound.component';
+import {AccessComponent} from './generic-components/access/access.component';
 
 @NgModule({
   imports: [
@@ -36,28 +36,6 @@ import {AccessComponent} from './components/access/access.component';
         path: '', component: AppMainComponent,
         children: [
           {path: '', component: DashboardComponent},
-          {path: 'uikit/formlayout', component: FormLayoutComponent},
-          {path: 'uikit/input', component: InputComponent},
-          {path: 'uikit/floatlabel', component: FloatLabelComponent},
-          {path: 'uikit/invalidstate', component: InvalidStateComponent},
-          {path: 'uikit/button', component: ButtonComponent},
-          {path: 'uikit/table', component: TableComponent},
-          {path: 'uikit/list', component: ListComponent},
-          {path: 'uikit/tree', component: TreeComponent},
-          {path: 'uikit/panel', component: PanelsComponent},
-          {path: 'uikit/overlay', component: OverlaysComponent},
-          {path: 'uikit/media', component: MediaComponent},
-          {path: 'uikit/menu', loadChildren: () => import('./components/menus/menus.module').then(m => m.MenusModule)},
-          {path: 'uikit/message', component: MessagesComponent},
-          {path: 'uikit/misc', component: MiscComponent},
-          {path: 'uikit/charts', component: ChartsComponent},
-          {path: 'uikit/file', component: FileComponent},
-          {path: 'pages/crud', component: CrudComponent},
-          {path: 'pages/timeline', component: TimelineComponent},
-          {path: 'pages/empty', component: EmptyComponent},
-          {path: 'icons', component: IconsComponent},
-          {path: 'blocks', component: BlocksComponent},
-          {path: 'documentation', component: DocumentationComponent}
         ],
       },
       {path: 'pages/landing', component: LandingComponent},
