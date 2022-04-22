@@ -1,0 +1,27 @@
+server:
+  port: 9090
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: jdbc:postgresql://localhost:5432/parking
+    username: keycloak
+    password: keycloak
+
+keycloak:
+  realm: parking-share
+  auth-server-url: http://localhost:8080
+  ssl-required: external
+  resource: api
+  use-resource-role-mappings: true
+  bearer-only: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type: TRACE
