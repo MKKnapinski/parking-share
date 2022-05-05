@@ -8,6 +8,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import * as fromApp from './state/reducers';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),
-    StoreRouterConnectingModule.forRoot()
+    StoreRouterConnectingModule.forRoot(),
+    StoreModule.forRoot(fromApp.reducers, { metaReducers: fromApp.metaReducers })
   ],
   providers: [],
   bootstrap: [AppComponent]

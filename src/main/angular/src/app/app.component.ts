@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {AppState} from './state/reducers';
+import {Store} from '@ngrx/store';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'parking-share';
+
+  constructor(store: Store<AppState>) {
+  }
 }
