@@ -13,6 +13,7 @@ import {AuthModule} from './auth/auth.module';
 import {HttpClientModule} from '@angular/common/http';
 import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
 import {initializer} from './auth/keycloak/keycloak.initializer';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {initializer} from './auth/keycloak/keycloak.initializer';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
     EffectsModule.forRoot([]),
