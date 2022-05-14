@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
-import {AppState} from './state/reducers';
-import {Store} from '@ngrx/store';
-
+import { PrimeNGConfig } from 'primeng/api';
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html'
 })
 export class AppComponent {
 
-  constructor(store: Store<AppState>) {
-  }
+    menuMode = 'static';
+
+    constructor(private primengConfig: PrimeNGConfig) { }
+
+    ngOnInit() {
+        this.primengConfig.ripple = true;
+        document.documentElement.style.fontSize = '14px';
+    }
 }
