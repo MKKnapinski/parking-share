@@ -1,30 +1,15 @@
-/* Importing Bootstrap SCSS file. */
+// sakai
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "../node_modules/primeflex/primeflex.scss";
+@import "../node_modules/primeicons/primeicons.css";
+@import "../node_modules/prismjs/themes/prism-coy.css";
+@import "assets/demo/flags/flags.css";
+@import "assets/demo/documentation.scss";
+@import "assets/sass/layout/_variables";
+@import "assets/sass/layout/_layout";
+@import "assets/sass/overrides/_overrides";
+
+// openprops
 $enable-cssgrid: true;
-@import "open-props/style";
-@import "open-props/normalize";
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html, body {
-  min-height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box !important;
-}
-
-body {
-  font-family: var(--font-sans);
-  font-size: var(--font-size-3);
-}
-
-.aspect-ratio-1 {
-  aspect-ratio: 1;
-}
-
-.flex {
-  display: flex;
-}
+@import "open-props/open-props.min.css";
+@import "open-props/normalize.min.css";

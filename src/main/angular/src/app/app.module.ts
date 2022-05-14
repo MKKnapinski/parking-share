@@ -14,12 +14,30 @@ import {HttpClientModule} from '@angular/common/http';
 import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
 import {initializer} from './auth/keycloak/keycloak.initializer';
 import {FormsModule} from '@angular/forms';
+import {AppMainComponent} from './main/app.main.component';
+import {AppConfigComponent} from './config/app.config.component';
+import {AppFooterComponent} from './footer/app.footer.component';
+import {AppMenuitemComponent} from './menu/app.menuitem.component';
+import {AppTopBarComponent} from './topbar/app.topbar.component';
+import {AppMenuComponent} from './menu/app.menu.component';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {InputSwitchModule} from 'primeng/inputswitch';
+import {ConfigService} from './service/app.config.service';
+import {MenuService} from './service/app.menu.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppMainComponent,
+    AppConfigComponent,
+    AppFooterComponent,
+    AppMenuComponent,
+    AppMenuitemComponent,
+    AppTopBarComponent
   ],
   imports: [
+    RadioButtonModule,
+    InputSwitchModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
@@ -49,7 +67,9 @@ import {FormsModule} from '@angular/forms';
       useFactory: initializer,
       multi: true,
       deps: [KeycloakService]
-    }
+    },
+    ConfigService,
+    MenuService
   ],
   bootstrap: [AppComponent]
 })
