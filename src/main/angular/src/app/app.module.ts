@@ -10,7 +10,7 @@ import {EffectsModule} from '@ngrx/effects';
 import {RouterState, StoreRouterConnectingModule} from '@ngrx/router-store';
 import * as fromApp from './state/reducers';
 import {AuthModule} from './auth/auth.module';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
 import {initializer} from './auth/keycloak/keycloak.initializer';
 import {FormsModule} from '@angular/forms';
@@ -24,6 +24,22 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {ConfigService} from './service/app.config.service';
 import {MenuService} from './service/app.menu.service';
+import {AuthService} from './auth/auth.service';
+import {CapitalizePipe} from './pipes/capitalize.pipe';
+import { UserListComponent } from './user-list/user-list.component';
+import {APICallInterceptor} from './interceptors/api-call-interceptor.interceptor';
+import {MessageService} from 'primeng/api';
+import {ToastModule} from 'primeng/toast';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MessageModule} from 'primeng/message';
+import {TableModule} from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
+import {RatingModule} from 'primeng/rating';
+import {ProgressBarModule} from 'primeng/progressbar';
+import {SliderModule} from 'primeng/slider';
+import {MultiSelectModule} from 'primeng/multiselect';
+import {DropdownModule} from 'primeng/dropdown';
+import {InputTextModule} from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -33,7 +49,9 @@ import {MenuService} from './service/app.menu.service';
     AppFooterComponent,
     AppMenuComponent,
     AppMenuitemComponent,
-    AppTopBarComponent
+    AppTopBarComponent,
+    CapitalizePipe,
+    UserListComponent
   ],
   imports: [
     RadioButtonModule,
@@ -59,7 +77,18 @@ import {MenuService} from './service/app.menu.service';
     }),
     AuthModule,
     HttpClientModule,
-    KeycloakAngularModule
+    KeycloakAngularModule,
+    ToastModule,
+    BrowserAnimationsModule,
+    MessageModule,
+    TableModule,
+    ButtonModule,
+    RatingModule,
+    ProgressBarModule,
+    SliderModule,
+    MultiSelectModule,
+    DropdownModule,
+    InputTextModule
   ],
   providers: [
     {
@@ -69,7 +98,10 @@ import {MenuService} from './service/app.menu.service';
       deps: [KeycloakService]
     },
     ConfigService,
-    MenuService
+    MenuService,
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: APICallInterceptor, multi: true },
+    MessageService
   ],
   bootstrap: [AppComponent]
 })
