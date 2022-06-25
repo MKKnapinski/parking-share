@@ -40,6 +40,8 @@ import {SliderModule} from 'primeng/slider';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputTextModule} from 'primeng/inputtext';
+import {SpinnerModule} from 'primeng/spinner';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
@@ -88,7 +90,8 @@ import {InputTextModule} from 'primeng/inputtext';
     SliderModule,
     MultiSelectModule,
     DropdownModule,
-    InputTextModule
+    InputTextModule,
+    ProgressSpinnerModule
   ],
   providers: [
     {
