@@ -20,6 +20,7 @@
     <java.version>11</java.version>
     <testcontainers.version>1.16.2</testcontainers.version>
     <keycloak.version>17.0.1</keycloak.version>
+    <spring-restdocs.version>2.0.6.RELEASE</spring-restdocs.version>
   </properties>
 
   <dependencies>
@@ -98,6 +99,12 @@
       <version>${keycloak.version}</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.springframework.restdocs</groupId>
+      <artifactId>spring-restdocs-mockmvc</artifactId>
+      <scope>test</scope>
+    </dependency>
+
   </dependencies>
 
   <dependencyManagement>
@@ -136,6 +143,32 @@
             </exclude>
           </excludes>
         </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.asciidoctor</groupId>
+        <artifactId>asciidoctor-maven-plugin</artifactId>
+        <version>1.5.8</version>
+        <executions>
+          <execution>
+            <id>generate-docs</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>process-asciidoc</goal>
+            </goals>
+            <configuration>
+              <backend>html</backend>
+              <doctype>book</doctype>
+            </configuration>
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>org.springframework.restdocs</groupId>
+            <artifactId>spring-restdocs-asciidoctor</artifactId>
+            <version>${spring-restdocs.version}</version>
+          </dependency>
+        </dependencies>
       </plugin>
 
     </plugins>
