@@ -22,6 +22,8 @@ keycloak:
   resource: api
   use-resource-role-mappings: true
   bearer-only: true
+  credentials:
+    secret: kek
 
 logging:
   level:

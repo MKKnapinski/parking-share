@@ -4,5 +4,5 @@ This document describes how to deploy and develop parking share application
 
 == Keycloak
 
-include::./keycloak.adoc[Keycloak]
+include::./keycloak/keycloak.adoc[Keycloak]
 
