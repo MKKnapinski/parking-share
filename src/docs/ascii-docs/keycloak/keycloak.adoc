@@ -6,6 +6,7 @@
 :realm_name: parking-share
 :backend_client_id: api
 :frontend_client_id: frontend
+:imagesdir: keycloak/images
 
 IMPORTANT: Make sure to use JDK {jdk_version}
 
@@ -21,7 +22,7 @@ $ docker-compose up -d
 
 Open {keycloak_base_url} in your browser and click *Administration console*
 
-image::images/login_1.png[alt="Administration console"]
+image::login_1.png[alt="Administration console"]
 
 Login using defualt credentials:
 [cols="1,1"]
@@ -35,16 +36,16 @@ Login using defualt credentials:
 
 WARNING: Default credentials should be used only for local development. For production use please see the production ready guide (TODO: Create production ready guide).
 
-image::images/login_2.png[]
+image::login_2.png[]
 
 === Create Realm
 
 Click the dropdown currently indicating that "Master" realm is active and click "Add Realm" button.
 
-image::images/create_realm_1.png[]
+image::create_realm_1.png[]
 
 Set realm name to "{realm_name}"
-image::images/create_realm_2.png[]
+image::create_realm_2.png[]
 
 from now on, make sure that "{realm_name}" is active.
 
@@ -63,7 +64,7 @@ Set the following values:
 | Client Protocol
 | openid-connect
 |===
-image::images/create_client_2.png[]
+image::create_client_2.png[]
 
 After clicking "Save" in the next menu set the following values:
 [cols="1,1"]
@@ -74,12 +75,12 @@ After clicking "Save" in the next menu set the following values:
 | Access Type
 | Bearer only
 |===
-image::images/create_client_3.png[]
+image::create_client_3.png[]
 Here access type is set to "bearer only" as API will never initiate login. It will just expect valid bearer token.
 
 Now create roles for the API. Click "Roles" tab and click the "Add Role" button.
 
-image::images/create_role_1.png[]
+image::create_role_1.png[]
 
 As there are 2 types of users in the scope of this app:
 
@@ -129,16 +130,16 @@ http://localhost/*
 | +
 |===
 
-image::images/create_client_4.png[]
+image::create_client_4.png[]
 
 And create composite role for app user
 
-image::images/create_role_3.png[]
+image::create_role_3.png[]
 
 Set "Role Name" to "app_user" and on the next screen set "Composite Roles" to "ON" and then select "api" from the "Client Roles" dropdown. Select "api_user" role and click "Add Selected". From now on every user with the role "app_user" from frontend client will be automatically assigned "api_user" role from api client.
 
-image::images/create_role_4.png[]
+image::create_role_4.png[]
 
 Then analogously we need to create app_admin role, but we will assign both api_user and api_admin as composite roles.
 
-image::images/create_role_5.png[]
+image::create_role_5.png[]

@@ -21,6 +21,7 @@
     <testcontainers.version>1.16.2</testcontainers.version>
     <keycloak.version>17.0.1</keycloak.version>
     <spring-restdocs.version>2.0.6.RELEASE</spring-restdocs.version>
+    <snippetsDirectory>${project.build.directory}/generated-snippets</snippetsDirectory>
   </properties>
 
   <dependencies>
@@ -159,6 +160,11 @@
             <configuration>
               <backend>html</backend>
               <doctype>book</doctype>
+              <attributes>
+                <snippets>${snippetsDirectory}</snippets>
+              </attributes>
+              <sourceDirectory>src/docs/ascii-docs</sourceDirectory>
+              <outputDirectory>target/generated-docs</outputDirectory>
             </configuration>
           </execution>
         </executions>
